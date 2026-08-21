@@ -193,6 +193,7 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
 #depara_repasse['Caminho'] = depara_repasse['Caminho'].apply(convert_image)
 #depara_repasse.to_parquet('data/repasse/depara_repasse.parquet')
 
+
 if check_for_new_file(
     "data/repasse/graficos.xlsx",
     "data/repasse/*.parquet"
@@ -202,8 +203,19 @@ if check_for_new_file(
         "data/repasse"
     )
 
-repasse = pl.read_parquet("data/repasse/repasse.parquet")
+    depara_repasse = pl.read_parquet(
+        "data/repasse/depara_repasse.parquet"
+    ).to_pandas()
 
+    depara_repasse["Caminho"] = (
+        depara_repasse["Caminho"].apply(convert_image)
+    )
+
+    depara_repasse.to_parquet(
+        "data/repasse/depara_repasse.parquet"
+    )
+
+repasse = pl.read_parquet("data/repasse/repasse.parquet")
 depara_repasse = pl.read_parquet("data/repasse/depara_repasse.parquet")
 
 repasse = repasse.join(depara_repasse, left_on="SKU", right_on="SKU")
