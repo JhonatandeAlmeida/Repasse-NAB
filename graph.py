@@ -227,7 +227,7 @@ grupo_dict = {"Single": ["Single", "Premium"], "Multi": ["Multi1", "Multi2"]}
 with col1:
     uf = st.selectbox("UF", sorted(repasse["uf"].unique()), 0, key="uf")
 with col2:
-    canal = st.selectbox("Canal", ["BAR", "ASR", "VAREJO", "ATACADO"], 0, key="canal")
+    canal = st.selectbox("Canal", ["VAREJO", "ATACADO"], 0, key="canal")
 #with col3:
     #grupo_select = st.selectbox('Grupo', ['Single', 'Multi'], 0, key='grupo')
 
