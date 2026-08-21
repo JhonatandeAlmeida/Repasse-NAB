@@ -11,10 +11,15 @@ from pandas.api.types import is_numeric_dtype
 
 from PIL import Image as PILImage
 import io
+import os
 import base64
 
 
 def convert_image(string: str) -> str:
+    string = string.replace("\\", "/")
+    st.write("Tentando abrir:", string)
+    st.write("Arquivo existe?", os.path.exists(string))
+    
     image = PILImage.open(string)
     output = io.BytesIO()
     image.save(output, format="PNG")
@@ -196,7 +201,6 @@ depara_repasse.to_parquet('data/repasse/depara_repasse.parquet')
 
 repasse = pl.read_parquet("data/repasse/repasse.parquet")
 depara_repasse = pl.read_parquet("data/repasse/depara_repasse.parquet")
-
 
 repasse = repasse.join(depara_repasse, left_on="SKU", right_on="SKU")
 
