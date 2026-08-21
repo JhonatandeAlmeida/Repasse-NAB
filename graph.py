@@ -217,7 +217,10 @@ reduce_header_height_style = """
 """
 st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
-st.header(f"Resumo Repasse - {title}")
+st.markdown(
+    f"<h1 style='padding-top:10px;'>Resumo Repasse - {title}</h1>",
+    unsafe_allow_html=True
+)
 
 col1, col2, col3, col4, col5 = st.columns(5)
 
