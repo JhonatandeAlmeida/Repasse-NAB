@@ -17,8 +17,8 @@ import base64
 
 def convert_image(string: str) -> str:
     string = string.replace("\\", "/")
-    st.write("Tentando abrir:", string)
-    st.write("Arquivo existe?", os.path.exists(string))
+    #st.write("Tentando abrir:", string)
+    #st.write("Arquivo existe?", os.path.exists(string))
     
     image = PILImage.open(string)
     output = io.BytesIO()
