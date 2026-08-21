@@ -25,6 +25,18 @@ def read_all_bases():
     if check_for_new_file("data/deparas.xlsx", "data/*.parquet"):
         ini = time.time()
         read_excel_parquets("data/deparas.xlsx")
+            depara_repasse = pl.read_parquet(
+        "data/repasse/depara_repasse.parquet"
+    ).to_pandas()
+
+    depara_repasse["Caminho"] = (
+        depara_repasse["Caminho"]
+        .apply(convert_image)
+    )
+
+    depara_repasse.to_parquet(
+        "data/repasse/depara_repasse.parquet"
+    )
         fim = time.time()
         st.write(f"atualizou em {int(fim-ini)} segundos!")
 
