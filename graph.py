@@ -308,14 +308,6 @@ with tab2:
         hide_index=True,
         column_config={
             "UF": "Estado",
-            "ROTA": st.column_config.NumberColumn(
-                "Rota",
-                format="R$ %2f",
-            ),
-            "ASR": st.column_config.NumberColumn(
-                "ASR",
-                format="R$ %2f",
-            ),
             "VAREJO": st.column_config.NumberColumn(
                 "Varejo",
                 format="R$ %2f",
