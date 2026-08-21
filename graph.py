@@ -16,9 +16,9 @@ import base64
 
 
 def convert_image(string: str) -> str:
-    string = string.replace("\\", "/")
-    st.write("Tentando abrir:", string)
-    st.write("Arquivo existe?", os.path.exists(string))
+    #string = string.replace("\\", "/")
+    #st.write("Tentando abrir:", string)
+    #st.write("Arquivo existe?", os.path.exists(string))
     
     image = PILImage.open(string)
     output = io.BytesIO()
@@ -194,9 +194,9 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
 
 read_excel_parquets('data/repasse/graficos.xlsx', 'data/repasse')
 
-depara_repasse = pl.read_parquet('data/repasse/depara_repasse.parquet').to_pandas()
-depara_repasse['Caminho'] = depara_repasse['Caminho'].apply(convert_image)
-depara_repasse.to_parquet('data/repasse/depara_repasse.parquet')
+#depara_repasse = pl.read_parquet('data/repasse/depara_repasse.parquet').to_pandas()
+#depara_repasse['Caminho'] = depara_repasse['Caminho'].apply(convert_image)
+#depara_repasse.to_parquet('data/repasse/depara_repasse.parquet')
 
 
 repasse = pl.read_parquet("data/repasse/repasse.parquet")
