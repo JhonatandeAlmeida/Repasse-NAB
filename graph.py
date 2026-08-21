@@ -263,7 +263,7 @@ resumo_canais = resumo_canais[
         "atacado-ttc pos",
     ]
 ]
-resumo_canais.columns = ["UF", "Geo", "SKU", "ROTA", "ASR", "VAREJO", "ATACADO"]
+resumo_canais.columns = ["UF", "Geo", "SKU", "VAREJO", "ATACADO"]
 
 repasse = repasse.filter(pl.col("uf") == st.session_state["uf"])
 #repasse = repasse.filter(pl.col('grupo').is_in(grupo_dict.get(grupo_select)))
