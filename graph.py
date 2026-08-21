@@ -257,8 +257,6 @@ resumo_canais = resumo_canais[
         "uf",
         "geo",
         "sku",
-        "rota-ttv pos",
-        "asr-ttv pos",
         "varejo-ttc pos",
         "atacado-ttc pos",
     ]
