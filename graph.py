@@ -134,16 +134,18 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
         case _:
             y = "a"
 
-    df["nome_sorted"] = (
-        df[y]
-        .round(2)
-        .astype(str)
-        .str.replace("10", "zzy")
-        .str.replace("11", "zzz")
-        .str.replace(".", "")
-        + df["nome_slide"]
-    )
-
+   # df["nome_sorted"] = (
+       # df[y]
+        #.round(2)
+       # .astype(str)
+       # .str.replace("10", "zzy")
+       # .str.replace("11", "zzz")
+      # .str.replace(".", "")
+       # + df["nome_slide"]
+   # )
+df["nome_sorted"] = df["nome_slide"]
+    #ordernar
+df = df.sort_values(by=y, ascending=True)
     y_min = df[y].min()
     y_max = df[y].max()
 
@@ -153,7 +155,12 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
         alt.Chart(df)
         .mark_image(height=h_pic, baseline="bottom")
         .encode(
-            x=alt.X("nome_sorted:N", axis=alt.Axis(labels=False, title="")),
+            #x=alt.X("nome_sorted:N", axis=alt.Axis(labels=False, title="")),
+            x=alt.X(
+    "nome_sorted:N",
+    sort=df["nome_sorted"].tolist(),
+    axis=alt.Axis(labels=False, title="")
+)
             y=alt.Y(
                 f"{y}:Q",
                 axis=alt.Axis(labels=False, grid=False, title=""),
