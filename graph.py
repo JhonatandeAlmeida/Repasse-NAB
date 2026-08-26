@@ -161,7 +161,7 @@ chart = (
     "nome_sorted:N",
     sort=df["nome_sorted"].tolist(),
     axis=alt.Axis(labels=False, title="")
-)
+),
             y=alt.Y(
                 f"{y}:Q",
                 axis=alt.Axis(labels=False, grid=False, title=""),
