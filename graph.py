@@ -175,7 +175,7 @@ chart = (
 tick_offset = 20
 font_size = 15
 
-    tick = chart.mark_tick(
+tick = chart.mark_tick(
         yOffset=tick_offset,
         color="black",
         thickness=2,
