@@ -242,7 +242,7 @@ with col2:
     canal = st.segmented_control(
         "Canal",
         ["VAREJO", "ATACADO"],
-        default="VAREJO"
+        default="VAREJO", key="canal"
     )
 #with col3:
     #grupo_select = st.selectbox('Grupo', ['Single', 'Multi'], 0, key='grupo')
@@ -281,7 +281,11 @@ resumo_canais.columns = ["UF", "Geo", "SKU", "VAREJO", "ATACADO"]
 
 repasse = repasse.filter(pl.col("uf") == st.session_state["uf"])
 #repasse = repasse.filter(pl.col('grupo').is_in(grupo_dict.get(grupo_select)))
-repasse = repasse.select(comum + canais.get(st.session_state["canal"])).to_pandas()
+#repasse = repasse.select(comum + canais.get(st.session_state["canal"])).to_pandas()
+repasse = repasse.select(
+    comum + canais.get(canal)
+).to_pandas()
+
 
 graphs = [
     make_graph_repasse(repasse[repasse["grupo"] == grupo], 250, 1600, 120, 75, canal)
