@@ -225,7 +225,6 @@ st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 st.header(f"Resumo Repasse - {title}")
 
 col1, col2, col3, col4, col5 = st.columns(5)
-col1, col2 = st.columns([3, 2])
 
 grupo_dict = {"Single": ["Single", "Premium"], "Multi": ["Multi1", "Multi2"]}
 
