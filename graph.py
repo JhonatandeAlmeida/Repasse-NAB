@@ -184,7 +184,7 @@ tick = chart.mark_tick(
 
 lines = ["bold"] + ["normal"] * len([x for x in df.columns if x.startswith("line")])
 
-    texts = [
+texts = [
         make_text(
             df,
             name,
