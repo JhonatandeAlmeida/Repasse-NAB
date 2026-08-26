@@ -133,7 +133,6 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
             ).astype(str)
         case _:
             y = "a"
-
    # df["nome_sorted"] = (
        # df[y]
         #.round(2)
