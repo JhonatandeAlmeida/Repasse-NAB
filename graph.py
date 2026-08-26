@@ -233,7 +233,7 @@ with col1:
     uf = st.segmented_control(
         "UF",
         sorted(repasse["uf"].unique()),
-        defalt = "AM"
+        default = "AM"
     )
 with col2:
     canal = st.segmented_control(
