@@ -228,7 +228,7 @@ st.header(f"Resumo Repasse - {title}")
 
 grupo_dict = {"Single": ["Single", "Premium"], "Multi": ["Multi1", "Multi2"]}
 
-col1, col2 = st.columns([4, 2])
+col1, col2 = st.columns([3, 2])
 
 with col1:
     uf = st.segmented_control(
