@@ -152,10 +152,10 @@ y_max = df[y].max()
 
 df["text1"] = df["nome_sorted"]
 
-    chart = (
-        alt.Chart(df)
-        .mark_image(height=h_pic, baseline="bottom")
-        .encode(
+chart = (
+    alt.Chart(df)
+    .mark_image(height=h_pic, baseline="bottom")
+    .encode(
             #x=alt.X("nome_sorted:N", axis=alt.Axis(labels=False, title="")),
             x=alt.X(
     "nome_sorted:N",
