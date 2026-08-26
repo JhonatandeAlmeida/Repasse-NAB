@@ -229,7 +229,12 @@ col1, col2, col3, col4, col5 = st.columns(5)
 grupo_dict = {"Single": ["Single", "Premium"], "Multi": ["Multi1", "Multi2"]}
 
 with col1:
-    uf = st.selectbox("UF", sorted(repasse["uf"].unique()), 0, key="uf")
+    #uf = st.selectbox("UF", sorted(repasse["uf"].unique()), 0, key="uf")
+    uf = st.segmented_control(
+        "UF",
+        sorted(repasse["uf"].unique()),
+        defalt = "AM"
+    )
 with col2:
     canal = st.segmented_control(
         "Canal",
