@@ -224,25 +224,26 @@ st.markdown(reduce_header_height_style, unsafe_allow_html=True)
 
 st.header(f"Resumo Repasse - {title}")
 
-col1, col2, col3, col4, col5 = st.columns(5)
+#col1, col2, col3, col4, col5 = st.columns(5)
 
 grupo_dict = {"Single": ["Single", "Premium"], "Multi": ["Multi1", "Multi2"]}
 
-with col1:
-    #uf = st.selectbox("UF", sorted(repasse["uf"].unique()), 0, key="uf")
-    ufs = sorted(repasse["uf"].unique())
+col1, col2 = st.columns([4, 2])
 
-uf = st.segmented_control(
-    "UF",
-    ufs,
-    default=ufs[0],
-    key="uf"
-)
+with col1:
+    uf = st.segmented_control(
+        "UF",
+        sorted(repasse["uf"].unique()),
+        default="DF",
+        key="uf"
+    )
+
 with col2:
     canal = st.segmented_control(
         "Canal",
         ["VAREJO", "ATACADO"],
-        default="VAREJO", key="canal"
+        default="VAREJO",
+        key="canal"
     )
 #with col3:
     #grupo_select = st.selectbox('Grupo', ['Single', 'Multi'], 0, key='grupo')
