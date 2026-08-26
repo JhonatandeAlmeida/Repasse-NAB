@@ -196,7 +196,6 @@ texts = [
         )
         for i, name in enumerate([x for x in df.columns if x.startswith("line")])
     ]
-
 return alt.layer(chart, *texts, tick)
 
 
