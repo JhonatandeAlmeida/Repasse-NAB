@@ -172,8 +172,8 @@ chart = (
         .properties(height=h_chart, width=w_chart)
     )
 
-    tick_offset = 20
-    font_size = 15
+tick_offset = 20
+font_size = 15
 
     tick = chart.mark_tick(
         yOffset=tick_offset,
