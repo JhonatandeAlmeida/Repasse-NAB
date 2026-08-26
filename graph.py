@@ -146,8 +146,9 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
 df["nome_sorted"] = df["nome_slide"]
     #ordernar
 df = df.sort_values(by=y, ascending=True)
-    y_min = df[y].min()
-    y_max = df[y].max()
+
+y_min = df[y].min()
+y_max = df[y].max()
 
     df["text1"] = df["nome_sorted"]
 
