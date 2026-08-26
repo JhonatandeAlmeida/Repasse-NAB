@@ -143,9 +143,9 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
       # .str.replace(".", "")
        # + df["nome_slide"]
    # )
-df["nome_sorted"] = df["nome_slide"]
-    #ordernar
 df = df.sort_values(by=y, ascending=True)
+
+df["nome_sorted"] = df["nome_slide"]
 
 y_min = df[y].min()
 y_max = df[y].max()
