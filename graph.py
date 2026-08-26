@@ -133,25 +133,17 @@ def make_graph_repasse(df: pd.DataFrame, h_chart, w_chart, h_pic, w_pic, canal):
             ).astype(str)
         case _:
             y = "a"
-   # df["nome_sorted"] = (
-       # df[y]
-        #.round(2)
-       # .astype(str)
-       # .str.replace("10", "zzy")
-       # .str.replace("11", "zzz")
-      # .str.replace(".", "")
-       # + df["nome_slide"]
-   # )
-df = df.sort_values(by=y, ascending=True)
 
-df["nome_sorted"] = df["nome_slide"]
+    df = df.sort_values(by=y, ascending=True)
 
-y_min = df[y].min()
-y_max = df[y].max()
+    df["nome_sorted"] = df["nome_slide"]
 
-df["text1"] = df["nome_sorted"]
+    y_min = df[y].min()
+    y_max = df[y].max()
 
-chart = (
+    df["text1"] = df["nome_sorted"]
+
+    chart = (
     alt.Chart(df)
     .mark_image(height=h_pic, baseline="bottom")
     .encode(
@@ -171,19 +163,19 @@ chart = (
         .properties(height=h_chart, width=w_chart)
     )
 
-tick_offset = 20
-font_size = 15
+    tick_offset = 20
+    font_size = 15
 
-tick = chart.mark_tick(
+    tick = chart.mark_tick(
         yOffset=tick_offset,
         color="black",
         thickness=2,
         size=w_chart / len(df["nome_sorted"].unique()) - 50,  # controls width of tick.
     ).encode(x="nome_sorted", y=alt.Y(y, axis=alt.Axis(labels=False)))
 
-lines = ["bold"] + ["normal"] * len([x for x in df.columns if x.startswith("line")])
+    lines = ["bold"] + ["normal"] * len([x for x in df.columns if x.startswith("line")])
 
-texts = [
+    texts = [
         make_text(
             df,
             name,
@@ -195,7 +187,7 @@ texts = [
         )
         for i, name in enumerate([x for x in df.columns if x.startswith("line")])
     ]
-return alt.layer(chart, *texts, tick)
+    return alt.layer(chart, *texts, tick)
 
 
 read_excel_parquets('data/repasse/graficos.xlsx', 'data/repasse')
