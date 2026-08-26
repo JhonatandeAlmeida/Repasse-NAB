@@ -182,7 +182,7 @@ tick = chart.mark_tick(
         size=w_chart / len(df["nome_sorted"].unique()) - 50,  # controls width of tick.
     ).encode(x="nome_sorted", y=alt.Y(y, axis=alt.Axis(labels=False)))
 
-    lines = ["bold"] + ["normal"] * len([x for x in df.columns if x.startswith("line")])
+lines = ["bold"] + ["normal"] * len([x for x in df.columns if x.startswith("line")])
 
     texts = [
         make_text(
