@@ -150,7 +150,7 @@ df = df.sort_values(by=y, ascending=True)
 y_min = df[y].min()
 y_max = df[y].max()
 
-    df["text1"] = df["nome_sorted"]
+df["text1"] = df["nome_sorted"]
 
     chart = (
         alt.Chart(df)
